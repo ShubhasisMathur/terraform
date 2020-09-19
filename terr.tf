@@ -1,16 +1,17 @@
 
-### providers.tf
-
-```sh
 provider "aws" {
-  region = "us-west-1"
-  access_key = "YOUR-ACCESS-KEY"
-  secret_key = "YOUR-SECRET-KEY"
+  region     = var.region
+  access_key = "AKIAQJLZNAHA5K3CR6JE"
+  secret_key = "yP2ZuI9UN+h+Rp9e6cmT6jJi7YTvkY6YbK+KZowB"
+  version    = ">=2.8"
 }
-```
+
+variable "region" {
+  default = "us-east-1"
+}
+
 
 ### rds.tf
-```sh
 resource "aws_db_instance" "default" {
   allocated_storage    = 5
   storage_type         = "gp2"
@@ -23,9 +24,3 @@ resource "aws_db_instance" "default" {
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot = "true"
 }
-```
-
-### rds_pass.txt
-```sh
-mysecretpassword505
-```
